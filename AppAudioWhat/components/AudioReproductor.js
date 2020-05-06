@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Button, TouchableOpacity, ProgressBarAndroid } from 'react-native';
 import { Audio } from 'expo-av';
 import { FontAwesome, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -24,7 +24,7 @@ class AudioReproductor extends Component {
     }
 
     btnAudioClicked = async () => {
-        await this.playbackObject.loadAsync(require('../audios/eco.mp3'));
+        await this.playbackObject.loadAsync(require('/data'));
     }
 
     btnPausePlayerClicked = async () => {
@@ -37,7 +37,14 @@ class AudioReproductor extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.textos}>Reproducir Audio</Text>
-                
+
+
+                {/* <ProgressBarAndroid />
+                <ProgressBarAndroid styleAttr="Horizontal" />
+                <ProgressBarAndroid styleAttr="Horizontal" color="#2196F3" />
+                <ProgressBarAndroid styleAttr="Horizontal" indeterminate={true} progress={0.9} /> */}
+
+
                 <TouchableOpacity style={styles.botones} onPress={this.btnAudioClicked}>
                     <Text>Música  <FontAwesome name="music" size={20}></FontAwesome ></Text>
                 </TouchableOpacity>
